@@ -3,6 +3,7 @@ function login() {
   const u = document.getElementById('username').value.trim();
   const p = document.getElementById('password').value.trim();
   if (u === 'admin' && p === '1234') {
+    localStorage.setItem("login", "true");
     document.getElementById('login').style.display = 'none';
     document.getElementById('main').style.display = 'block';
     renderRooms();
@@ -27,9 +28,10 @@ function renderRooms() {
   });
 }
 
-if (!localStorage.getItem("rooms")) {
-  localStorage.setItem("rooms", JSON.stringify([
-    {name: "C2-503", project: "รังสิต", rent: "5000"},
-    {name: "C2-504", project: "รังสิต", rent: "5000"}
-  ]));
-}
+window.onload = function () {
+  if (localStorage.getItem("login") === "true") {
+    document.getElementById("login").style.display = "none";
+    document.getElementById("main").style.display = "block";
+    renderRooms();
+  }
+};
