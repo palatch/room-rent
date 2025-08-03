@@ -1,0 +1,28 @@
+
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SMARTRENT – All Rooms</title>
+  <link href="style.css" rel="stylesheet" />
+</head>
+<body class="bg-gray-900 text-white font-sans">
+  <div id="login" class="flex flex-col items-center justify-center h-screen">
+    <h1 class="text-3xl font-bold mb-4">SMARTRENT</h1>
+    <input id="username" type="text" placeholder="ชื่อผู้ใช้" class="mb-2 px-4 py-2 rounded bg-gray-800 w-64" />
+    <input id="password" type="password" placeholder="รหัสผ่าน 4 หลัก" class="mb-4 px-4 py-2 rounded bg-gray-800 w-64" />
+    <button onclick="login()" class="bg-green-500 hover:bg-green-600 px-4 py-2 rounded">เข้าสู่ระบบ</button>
+  </div>
+
+  <div id="main" style="display:none;" class="p-4">
+    <div class="flex justify-between items-center mb-4">
+      <h2 class="text-xl font-bold">📋 รายการห้องทั้งหมด</h2>
+      <a href="add.html" class="bg-blue-500 px-3 py-2 rounded hover:bg-blue-600">+ เพิ่มห้อง</a>
+    </div>
+    <div id="room-list" class="grid gap-3"></div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
