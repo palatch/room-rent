@@ -1,0 +1,41 @@
+
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>เพิ่มห้องใหม่ - SMARTRENT</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="bg-gray-900 text-white font-sans p-4">
+  <h2 class="text-xl font-bold mb-4">➕ เพิ่มห้องใหม่</h2>
+  <form id="addRoomForm" class="grid gap-4">
+    <input type="text" id="name" placeholder="เลขห้อง" class="input" required />
+    <input type="text" id="project" placeholder="ชื่อโครงการ" class="input" required />
+    <input type="number" id="rent" placeholder="ค่าเช่า (บาท)" class="input" />
+    <input type="number" id="deposit" placeholder="เงินประกัน (บาท)" class="input" />
+    <label>วันเริ่มสัญญา: <input type="date" id="start" class="input" /></label>
+    <label>วันสิ้นสุดสัญญา: <input type="date" id="end" class="input" /></label>
+    <label>แนบไฟล์สัญญา: <input type="file" id="file" class="input bg-white text-black" /></label>
+    <button type="submit" class="bg-green-500 px-4 py-2 rounded">บันทึก</button>
+    <a href="index.html" class="bg-gray-700 px-4 py-2 rounded text-center">ย้อนกลับ</a>
+  </form>
+  <script>
+    document.getElementById("addRoomForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const rooms = JSON.parse(localStorage.getItem("rooms") || "[]");
+      rooms.push({
+        name: document.getElementById("name").value,
+        project: document.getElementById("project").value,
+        rent: document.getElementById("rent").value,
+        deposit: document.getElementById("deposit").value,
+        start: document.getElementById("start").value,
+        end: document.getElementById("end").value,
+        file: document.getElementById("file").value.split("\").pop()
+      });
+      localStorage.setItem("rooms", JSON.stringify(rooms));
+      window.location.href = "index.html";
+    });
+  </script>
+</body>
+</html>
